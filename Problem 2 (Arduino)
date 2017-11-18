@@ -1,0 +1,32 @@
+Serial.begin(9600);
+  Serial.println();
+  long int prevNum = 0;
+  long int prevNum2 = 1;
+  long int num = 0;
+  long int result = 0;
+  
+  while (result < 4000000){
+
+    result += evenNum(num);
+    num = prevNum+prevNum2;
+    prevNum2 = prevNum;
+    prevNum = num;
+
+    Serial.println(num);
+  }
+    Serial.println(result);
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+
+}
+
+long int evenNum(long int num){
+  if (num%2 == 0){
+    return num;
+  }
+  else{
+    return 0;
+  }
+}
